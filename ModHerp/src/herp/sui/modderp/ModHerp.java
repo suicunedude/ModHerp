@@ -5,6 +5,7 @@ package herp.sui.modderp;
 
 import herp.sui.modderp.config.ConfigHandler;
 import herp.sui.modderp.config.Confs;
+import herp.sui.modderp.items.Items;
 import herp.sui.modderp.lib.Values;
 import herp.sui.modderp.network.PacketHandler;
 import herp.sui.modderp.proxies.CommonProxy;
@@ -40,15 +41,16 @@ public class ModHerp {
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		Items.init();
+		
 		proxy.initSounds();
 		proxy.initRenderers();
-		System.out.println(Confs.SOMETEXTVAL + ": " + Confs.HERPVAL);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		
+		Items.addNames();
 	}
 	
 	@EventHandler

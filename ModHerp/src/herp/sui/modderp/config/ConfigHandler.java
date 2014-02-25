@@ -1,5 +1,6 @@
 package herp.sui.modderp.config;
 
+import herp.sui.modderp.items.ItemInfo;
 import herp.sui.modderp.lib.ConfigValues;
 
 import java.io.File;
@@ -18,6 +19,9 @@ public class ConfigHandler {
 				ConfigValues.HERP_DEFAULT).getInt();
 		Confs.SOMETEXTVAL = config.get(ConfigValues.CATEGORY_USELESS, ConfigValues.SOMETEXT_NAME,
 				ConfigValues.SOMETEXT_DEFAULT).getString();
+		
+		ItemInfo.WAND_ID = config.getItem(ConfigValues.WAND_KEY, 
+				ConfigValues.WAND_DEFAULT).getInt() - 256;
 		
 		config.save();
 		

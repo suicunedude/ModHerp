@@ -11,7 +11,8 @@ public class Values {
 	
 	public static final String MODID = "HERP";
 	public static final String MODNAME = "Herp";
-	public static final String MODVERSION = "How do I version?";
+	public static final String MODVERSION = "Something about rockets";
 	public static final String MODCHANNEL = "herp";
+	
 
 }
