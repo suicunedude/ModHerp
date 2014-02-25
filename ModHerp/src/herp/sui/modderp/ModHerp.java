@@ -4,9 +4,11 @@
 package herp.sui.modderp;
 
 import herp.sui.modderp.network.PacketHandler;
+import herp.sui.modderp.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -24,10 +26,17 @@ public class ModHerp {
 	@Instance("HERP")
 	public static ModHerp pie;
 	
+	@SidedProxy(clientSide = "herp.sui.modderp.proxies.ClientProxy", 
+			serverSide = "herp.sui.modderp.proxies.CommonProxy" )
+	public static CommonProxy proxy;
+	
+	
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		
+		proxy.initSounds();
+		proxy.initRenderers();
 	}
 	
 	@EventHandler
