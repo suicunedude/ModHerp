@@ -1,5 +1,7 @@
 package herp.sui.modderp.config;
 
+import herp.sui.modderp.lib.ConfigValues;
+
 import java.io.File;
 
 import net.minecraftforge.common.Configuration;
@@ -12,8 +14,10 @@ public class ConfigHandler {
 		
 		config.load();
 		
-		int test = config.get("useless stuff", "herp", 5).getInt();
-		String test2 = config.get("ueseless stuff", "Some text", "WHAT DO YOU WANT FROM ME!?").getString();
+		int test = config.get(ConfigValues.CATEGORY_USELESS, ConfigValues.HERP_NAME, 
+				ConfigValues.HERP_DEFAULT).getInt();
+		String test2 = config.get(ConfigValues.CATEGORY_USELESS, ConfigValues.SOMETEXT_NAME,
+				ConfigValues.SOMETEXT_DEFAULT).getString();
 		
 		config.save();
 		
