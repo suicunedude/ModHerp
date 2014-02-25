@@ -13,4 +13,6 @@ public class ItemInfo {
 	public static final String WAND_UNLOC_NAME = "rocketWand";
 	public static final String WAND_NAME = "Rocket Wand";
 	
+	public static final String WAND_ICON="wand";
+	
 }
