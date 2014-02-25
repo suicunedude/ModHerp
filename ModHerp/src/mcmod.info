@@ -1,0 +1,10 @@
+[
+{
+    "modid" : "HERP",
+    "name" : "Herp",
+    "version" : "I don't know how to version",
+    "credits" : "Pahimar and VSWE",
+    "authors": [ "suicune_dude" ],
+    "description" : "This is proooobably not going to do anything of worth."
+}
+]

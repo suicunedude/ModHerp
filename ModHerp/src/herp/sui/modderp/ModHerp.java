@@ -4,6 +4,7 @@
 package herp.sui.modderp;
 
 import herp.sui.modderp.config.ConfigHandler;
+import herp.sui.modderp.config.Confs;
 import herp.sui.modderp.lib.Values;
 import herp.sui.modderp.network.PacketHandler;
 import herp.sui.modderp.proxies.CommonProxy;
@@ -41,6 +42,7 @@ public class ModHerp {
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		proxy.initSounds();
 		proxy.initRenderers();
+		System.out.println(Confs.SOMETEXTVAL + ": " + Confs.HERPVAL);
 	}
 	
 	@EventHandler
