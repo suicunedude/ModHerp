@@ -3,6 +3,7 @@
  */
 package herp.sui.modderp;
 
+import herp.sui.modderp.config.ConfigHandler;
 import herp.sui.modderp.lib.Values;
 import herp.sui.modderp.network.PacketHandler;
 import herp.sui.modderp.proxies.CommonProxy;
@@ -37,6 +38,7 @@ public class ModHerp {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		proxy.initSounds();
 		proxy.initRenderers();
 	}
