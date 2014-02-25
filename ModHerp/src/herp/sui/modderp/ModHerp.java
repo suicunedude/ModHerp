@@ -3,6 +3,7 @@
  */
 package herp.sui.modderp;
 
+import herp.sui.modderp.lib.Values;
 import herp.sui.modderp.network.PacketHandler;
 import herp.sui.modderp.proxies.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -18,12 +19,13 @@ import cpw.mods.fml.common.network.NetworkMod;
  * @author suicune_dude
  *
  */
-@Mod (modid = "HERP", name = "Herp", version = "Whatever you want")
-@NetworkMod(channels = { "herp" }, clientSideRequired = true, serverSideRequired = false,
-		packetHandler = PacketHandler.class)
+@Mod (modid = Values.MODID, name = Values.MODNAME, 
+	version = Values.MODVERSION)
+@NetworkMod(channels = { Values.MODCHANNEL }, clientSideRequired = true, 
+	serverSideRequired = false, packetHandler = PacketHandler.class)
 public class ModHerp {
 	
-	@Instance("HERP")
+	@Instance(Values.MODID)
 	public static ModHerp pie;
 	
 	@SidedProxy(clientSide = "herp.sui.modderp.proxies.ClientProxy", 
