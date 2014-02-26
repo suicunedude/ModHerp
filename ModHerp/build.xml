@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<project name="ModHerp" default="build">
+    
+    <property file="build.properties" prefix="build" />
+    <property file="build_Number.properties" prefix="build_number" />
+    
+    <target name="clean">
+        <delete file ="${build.dir.development}/../src/minecraft/mcmod.info" />
+        <delete dir="${build.dir.development}/../src/minecraft/herp" />
+        <delete dir="${build.dir.development}/../reobf/minecraft" />
+    </target>
+    
+    <target name = "increment_build_number">
+        <propertyfile file="build_Number.properties" >
+        <entry key="build_number" type="int" operation="+" default = "1" />
+        </propertyfile>
+    </target>
+    
+    <target name="prep">
+        <copy todir="${build.dir.development}/../src/minecraft">
+               <fileset dir="${build.dir.development}/ModHerp/ModHerp/src" />
+        </copy>
+    </target>
+    
+    <target name="recompile">
+        <exec dir="${build.dir.development}/../" executable="bash" osfamily="unix">
+              <arg line="reobfuscate_srg.sh"/>
+        </exec>
+    </target>
+	
+	<target name="reobfuscate">
+		   <exec dir="${build.dir.development}/../" executable="bash" osfamily="unix">
+		    <arg line="reobfuscate_srg.sh"/>
+		   	</exec>
+	</target>
+    
+    <target name="build">
+        <antcall target="clean" />
+        <antcall target="increment_build_number" />
+        <antcall target="prep" />
+        <antcall target="recompile" />
+        <antcall target="reobfuscate" />
+        
+        <mkdir dir="${build.dir.release}/${build.release.minecraft.version}/${build.release.mod.version}"/>
+        <jar destfile="${build.dir.release}/${build.release.minecraft.version}/${build.release.mod.version}/Herp-${build.release.mod.version}.${build.release.minecraft.version}">
+              <fileset dir="${build.dir.development}/../src/minecraft/" includes="mcmod.info" />
+            <fileset dir="${build.dir.development}/../reobf/minecraft/" />
+            <fileset dir="${build.dir.development}/ModHerp/ModHerp/src/assets" />
+        </jar>
+    </target>
+    
+</project>
